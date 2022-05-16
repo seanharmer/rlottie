@@ -53,7 +53,6 @@ if(MSVC)
     target_compile_options(rlottie
                         PUBLIC
                         PRIVATE
-                            /EHs-c- # disable exceptions
                             /GR- # disable RTTI
                             /W3
                         )
@@ -61,9 +60,6 @@ else()
     target_compile_options(rlottie
                         PUBLIC
                         PRIVATE
-                            -fno-exceptions
-                            -fno-unwind-tables
-                            -fno-asynchronous-unwind-tables
                             -fno-rtti
                             -Wall
                             -fvisibility=hidden
