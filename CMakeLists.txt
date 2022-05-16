@@ -47,11 +47,12 @@ target_include_directories(rlottie
     )
 
 #declare common target compilation options
+target_compile_features(rlottie PRIVATE cxx_std_14)
+
 if(MSVC)
     target_compile_options(rlottie
                         PUBLIC
                         PRIVATE
-                            /std:c++14
                             /EHs-c- # disable exceptions
                             /GR- # disable RTTI
                             /W3
@@ -60,7 +61,6 @@ else()
     target_compile_options(rlottie
                         PUBLIC
                         PRIVATE
-                            -std=c++14
                             -fno-exceptions
                             -fno-unwind-tables
                             -fno-asynchronous-unwind-tables
