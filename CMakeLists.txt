@@ -1,5 +1,6 @@
 cmake_minimum_required( VERSION 3.3 )
 
+cmake_policy(SET CMP0090 NEW) # Stop export(PACKAGE) from modifying the system-wide cmake package system by default
 cmake_policy(SET CMP0117 NEW) # Do not add /GR to CMAKE_CXX_FLAGS
 
 #declare project
