@@ -268,6 +268,8 @@ using LayerInfoList = std::vector<std::tuple<std::string, int , int>>;
 
 using ColorFilter = std::function<void(float &r , float &g, float &b)>;
 
+// disable warning: 'identifier': class 'type' needs to have dll-interface to be used by clients of class 'type2'
+#pragma warning(disable: 4251)
 class RLOTTIE_API Animation {
 public:
 
@@ -506,6 +508,7 @@ private:
 
     std::unique_ptr<AnimationImpl> d;
 };
+#pragma warning(default: 4251)
 
 //Map Property to Value type
 template<> struct MapType<std::integral_constant<Property, Property::FillColor>>: Color_Type{};
