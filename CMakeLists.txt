@@ -72,6 +72,14 @@ else()
                         )
 endif()
 
+if(MSVC)
+    # Silence msvc warnings about strdup etc
+    target_compile_definitions(rlottie PRIVATE -D_CRT_NONSTDC_NO_DEPRECATE)
+    
+    # Silence msvc warnings about strncpy
+    target_compile_definitions(rlottie PRIVATE -D_CRT_SECURE_NO_WARNINGS)
+endif()
+
 if (WIN32 AND NOT BUILD_SHARED_LIBS)
     target_compile_definitions(rlottie PUBLIC -DRLOTTIE_BUILD=0)
 endif()
