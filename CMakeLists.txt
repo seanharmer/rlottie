@@ -1,5 +1,7 @@
 cmake_minimum_required( VERSION 3.3 )
 
+cmake_policy(SET CMP0117 NEW) # Do not add /GR to CMAKE_CXX_FLAGS
+
 #declare project
 project( rlottie VERSION 0.2 LANGUAGES C CXX ASM)
 
