@@ -10,5 +10,6 @@ tmp
 .cproject
 .project
 .vs
+.vscode
 **/*.DS_Store
 builddir_wasm
