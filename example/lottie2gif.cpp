@@ -32,14 +32,14 @@ public:
         argbTorgba(s);
         GifWriteFrame(&handle,
                       reinterpret_cast<uint8_t *>(s.buffer()),
-                      s.width(),
-                      s.height(),
+                      static_cast<uint32_t>(s.width()),
+                      static_cast<uint32_t>(s.height()),
                       delay);
     }
     void argbTorgba(rlottie::Surface &s)
     {
         uint8_t *buffer = reinterpret_cast<uint8_t *>(s.buffer());
-        uint32_t totalBytes = s.height() * s.bytesPerLine();
+        uint32_t totalBytes = static_cast<uint32_t>(s.height()) * static_cast<uint32_t>(s.bytesPerLine());
 
         for (uint32_t i = 0; i < totalBytes; i += 4) {
            unsigned char a = buffer[i+3];
@@ -172,7 +172,7 @@ main(int argc, char **argv)
 
     if (app.setup(argc, argv, &w, &h)) return 1;
 
-    app.render(w, h);
+    app.render(static_cast<uint32_t>(w), static_cast<uint32_t>(h));
 
     return 0;
 }

@@ -228,9 +228,9 @@ lottie_animation_property_override(Lottie_Animation_S *animation,
 
     switch(type) {
     case LOTTIE_ANIMATION_PROPERTY_FILLCOLOR: {
-        double r = v[0];
-        double g = v[1];
-        double b = v[2];
+        float r = static_cast<float>(v[0]);
+        float g = static_cast<float>(v[1]);
+        float b = static_cast<float>(v[2]);
         if (r > 1 || r < 0 || g > 1 || g < 0 || b > 1 || b < 0) break;
         animation->mAnimation->setValue<rlottie::Property::FillColor>(keypath, rlottie::Color(r, g, b));
         break;
@@ -242,9 +242,9 @@ lottie_animation_property_override(Lottie_Animation_S *animation,
         break;
     }
     case LOTTIE_ANIMATION_PROPERTY_STROKECOLOR: {
-        double r = v[0];
-        double g = v[1];
-        double b = v[2];
+        float r = static_cast<float>(v[0]);
+        float g = static_cast<float>(v[1]);
+        float b = static_cast<float>(v[2]);
         if (r > 1 || r < 0 || g > 1 || g < 0 || b > 1 || b < 0) break;
         animation->mAnimation->setValue<rlottie::Property::StrokeColor>(keypath, rlottie::Color(r, g, b));
         break;
